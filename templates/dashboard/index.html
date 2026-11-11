@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | DailyPulse AI{% endblock %}
+
+{% block content %}
+
+<div class="mb-4">
+    <h3>Welcome to DailyPulse AI</h3>
+    <p class="text-muted">
+        Manage your interests and personalize your news.
+    </p>
+</div>
+
+<div class="row g-3">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h6 class="text-muted">Total Interests</h6>
+                <h2>{{ total_interests }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h6 class="text-muted">Total Tags</h6>
+                <h2>{{ total_tags }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h6 class="text-muted">Active Interests</h6>
+                <h2>{{ active_interests }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-4">
+    <a href="{% url 'interest_list' %}"
+       class="btn btn-primary">
+        Manage Interests
+    </a>
+</div>
+
+{% endblock %}

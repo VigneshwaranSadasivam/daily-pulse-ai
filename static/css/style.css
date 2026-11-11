@@ -1,0 +1,91 @@
+/* DailyPulse AI - Interest Management */
+
+.interest-card {
+    border-radius: 14px;
+    transition: box-shadow 0.2s ease;
+}
+
+.interest-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.tag-chip {
+    background: #eef4ff;
+    border: 1px solid #dbe7ff;
+    border-radius: 8px;
+    color: #1e40af;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tag-source {
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.tag-action {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0 3px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.tag-action:hover {
+    color: #dc2626;
+}
+
+.generate-btn {
+    min-width: 230px;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.btn {
+    border-radius: 7px;
+}
+
+/* =========================================
+   Personalized News Feed
+========================================= */
+
+.news-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 12px;
+}
+
+.news-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+}
+
+.news-unread {
+    border-left: 4px solid #198754 !important;
+}
+
+.news-card h5 {
+    line-height: 1.5;
+}
+
+.news-card p {
+    line-height: 1.7;
+}
+
+.news-card .badge {
+    font-weight: 500;
+}
+
+@media (max-width: 576px) {
+    .generate-btn {
+        min-width: 100%;
+    }
+}

@@ -1,0 +1,33 @@
+
+DAILYPULSE AI - YOUR PERSONALIZED NEWS DIGEST
+
+Hello {{ user.email }},
+
+Here are the latest articles selected based on your interests.
+
+We selected {{ total_articles }} articles for your briefing.
+
+{% for item in articles %}
+
+--------------------------------------------------
+{{ forloop.counter }}. {{ item.article.title }}
+
+Category: {{ item.article.ai_category|default:"Uncategorized" }}
+Importance: {{ item.importance_score }}/100
+
+Summary:
+{{ item.summary }}
+
+Matched interests: {{ item.interests|join:", " }}
+
+Read full article:
+{{ item.article.url }}
+
+{% endfor %}
+
+--------------------------------------------------
+
+DailyPulse AI
+Personalized news, powered by AI.
+
+You're receiving this email because you have a DailyPulse AI account.

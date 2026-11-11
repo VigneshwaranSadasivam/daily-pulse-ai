@@ -1,0 +1,10 @@
+Django==5.2.19
+google-genai
+psycopg[binary]
+django-environ
+gunicorn
+whitenoise
+dj-database-url
+requests
+feedparser
+beautifulsoup4

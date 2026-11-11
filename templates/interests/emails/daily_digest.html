@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your DailyPulse AI News Digest</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f4f6f9; font-family:Arial,Helvetica,sans-serif; color:#263238;">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6f9; padding:25px 10px;">
+    <tr>
+        <td align="center">
+
+            <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; background-color:#ffffff; border-radius:10px; overflow:hidden;">
+
+                <!-- Header -->
+                <tr>
+                    <td style="background-color:#172554; padding:28px 30px; text-align:center;">
+                        <h1 style="margin:0; color:#ffffff; font-size:27px;">
+                            DailyPulse AI
+                        </h1>
+                        <p style="margin:8px 0 0; color:#cbd5e1; font-size:14px;">
+                            Your personalized news briefing
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Introduction -->
+                <tr>
+                    <td style="padding:30px 30px 15px;">
+                        <h2 style="margin:0 0 10px; font-size:21px; color:#172554;">
+                            Hello {{ user.email }},
+                        </h2>
+
+                        <p style="margin:0; color:#64748b; font-size:14px; line-height:1.7;">
+                            Here are the latest stories selected based on your interests.
+                            We've picked {{ total_articles }} articles for your briefing.
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Articles -->
+                {% for item in articles %}
+
+                <tr>
+                    <td style="padding:15px 30px;">
+
+                        <div style="border:1px solid #e2e8f0; border-radius:8px; padding:20px;">
+
+                            <div style="margin-bottom:10px;">
+                                {% if item.article.ai_category %}
+                                <span style="display:inline-block; background-color:#dbeafe; color:#1d4ed8; padding:5px 9px; border-radius:4px; font-size:11px; font-weight:bold;">
+                                    {{ item.article.ai_category }}
+                                </span>
+                                {% endif %}
+
+                                {% if item.importance_score %}
+                                <span style="display:inline-block; background-color:#f1f5f9; color:#475569; padding:5px 9px; border-radius:4px; font-size:11px;">
+                                    Importance: {{ item.importance_score }}/100
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <h3 style="margin:0 0 12px; font-size:17px; line-height:1.5; color:#0f172a;">
+                                {{ item.article.title }}
+                            </h3>
+
+                            <p style="margin:0 0 15px; font-size:14px; line-height:1.7; color:#475569;">
+                                {{ item.summary }}
+                            </p>
+
+                            {% if item.interests %}
+                            <p style="margin:0 0 15px; font-size:12px; color:#64748b;">
+                                <strong>Matched interests:</strong>
+                                {{ item.interests|join:", " }}
+                            </p>
+                            {% endif %}
+
+                            <a href="{{ item.article.url }}"
+                               style="display:inline-block; background-color:#2563eb; color:#ffffff; text-decoration:none; padding:10px 16px; border-radius:5px; font-size:13px; font-weight:bold;">
+                                Read Full Article
+                            </a>
+
+                        </div>
+
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+                <!-- Footer -->
+                <tr>
+                    <td style="padding:25px 30px; background-color:#f8fafc; text-align:center;">
+
+                        <p style="margin:0 0 8px; font-size:13px; color:#64748b;">
+                            You're receiving this email because you have a DailyPulse AI account.
+                        </p>
+
+                        <p style="margin:0; font-size:12px; color:#94a3b8;">
+                            DailyPulse AI | Personalized news, powered by AI
+                        </p>
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

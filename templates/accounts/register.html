@@ -1,0 +1,61 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}Register | DailyPulse AI{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+
+                <h3 class="text-center mb-2">
+                    Create Your Account
+                </h3>
+
+                <p class="text-center text-muted mb-4">
+                    Start receiving personalized news.
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label class="form-label">
+                                {{ field.label }}
+                            </label>
+
+                            {{ field }}
+
+                            {% if field.errors %}
+                                <div class="text-danger small">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="text-center mt-3">
+                    Already have an account?
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+```
